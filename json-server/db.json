@@ -1,0 +1,40 @@
+{
+  "tanulok": [
+    {
+      "id": "1",
+      "vezeteknev": "Nagy",
+      "keresztnev": "Elek",
+      "kor": "16",
+      "om_azonosito": "122223344455",
+      "szuletesi_hely": "Békéscsaba",
+      "email": "elek@suli.hu"
+    },
+    {
+      "id": "2",
+      "vezeteknev": "Pál",
+      "keresztnev": "Imre",
+      "kor": "17",
+      "om_azonosito": "122784344455",
+      "szuletesi_hely": "Gyula",
+      "email": "pal@suli.hu"
+    },
+    {
+      "id": "3",
+      "vezeteknev": "Kis",
+      "keresztnev": "Krisztina",
+      "kor": "19",
+      "om_azonosito": "172223344455",
+      "szuletesi_hely": "Vésztő",
+      "email": "kriszta@suli.hu"
+    },
+    {
+      "id": "4",
+      "vezeteknev": "Lovász",
+      "keresztnev": "Márton",
+      "kor": "15",
+      "om_azonosito": "122223994455",
+      "szuletesi_hely": "oroshaza",
+      "email": "marton@suli.hu"
+    }
+  ]
+}

@@ -47,4 +47,33 @@ app.get('/nevjegy',(req,res)=>{
 app.get('/termekek',(req,res)=>{
     
     res.json(adatok);
-})
+});
+
+app.post('/termekek',(req,res)=>{
+
+    console.log(req.body); 
+    adatok.push(req.body);
+
+    res.status(201).json({message:"Adat beillesztve!"});
+
+});
+
+app.put('/termek',(req,res)=>{
+    let adat=req.body;
+    let modositando=adatok.findIndex(x=>x.id==adat.id);
+    if(modositando>-1){
+        adatok[modositando]=adat;
+        res.status(200).json({message:"Adat módosítva!"});
+    } else {
+        res.status(404).json({message:"Az adat nem található!"});
+    }
+
+});
+
+app.delete('/termek/:id',(req,res)=>{
+    let id=req.params.id;
+    adatok=adatok.filter(x=>x.id!=id);
+    res.status(200).json({message:"Adat törölve!"});
+
+});
+
