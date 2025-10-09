@@ -56,3 +56,38 @@ app.get('/kutyanevek3',async (req,res)=>{
         res.send(error);
     }
 });
+
+app.get('/kutyanev/id/:id',(req,res)=>{
+    const Id=req.params.id;
+    db.all("select * from kutyanevek where Id=?",[Id],(error,rows)=>{
+        if(error) return res.json(error)
+        if(rows.length>0)  return res.status(200).json(rows[0]);
+        return res.status(404).json({message:"Nincs ilyen adat!"});
+    })
+})
+
+app.post('/kutyafajta',(req,res)=>{
+    const{nev,eredetinev}=req.body;
+    db.run("insert into kutyafajtak (nev,eredetinev) values(?,?)",[nev,eredetinev],error=>{
+        if(error) return res.send(error);
+        return res.status(201).json({message:"Adat beszúrva!"});
+    })
+})
+
+app.put('/kutyafajta',(req,res)=>{
+    const{Id,nev,eredetinev}=req.body;
+    db.run("update kutyafajtak set nev=?,eredetinev=? where Id=?"
+        ,[nev,eredetinev,Id])
+        ,error=>{
+            if(error) return res.send(error);
+            return res.status(200).json({message:"Adat módosítva!"});
+        }
+})
+
+app.delete('/kutyafajta/:id',(req,res)=>{
+    const id=req.params.id;
+    db.run("delete from kutyafajtak where Id=?",[id],error=>{
+        if(error) return res.send(error);
+        return res.status(200).json({message:"Adat törölve!"});
+    })
+})
