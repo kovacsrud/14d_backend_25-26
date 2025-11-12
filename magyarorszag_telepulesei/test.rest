@@ -1,3 +1,9 @@
 GET http://localhost:8000
 ###
 GET http://localhost:8000/api/jogallasok
+###
+GET http://localhost:8000/api/megyek
+###
+GET http://localhost:8000/api/telepulesek
+###
+GET http://localhost:8000/api/jogallasok/jogallas/város
