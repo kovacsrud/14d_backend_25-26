@@ -48,3 +48,41 @@ app.post('/regisztracio',async (req,res)=>{
     return res.json(ujUser);
 
 });
+
+
+app.post('/belepes',async (req,res)=>{
+    const {username,password}=req.body;
+    const user=await User.findOne({username:username});
+    if(!user){
+        return res.status(400).json({message:"Nincs ilyen felhasználó!"});
+    }
+    if(!await bcrypt.compare(password,user.password)){
+        return res.status(400).json({message:"A jelszó nem megfelelő!"});
+    }
+
+    return res.status(200).json(user);
+
+});
+
+app.patch('/modositas',async (req,res)=>{
+
+    const{_id,email,password,age}=req.body;
+
+    if(!mongoose.Types.ObjectId.isValid(_id)){
+        return res.status(400).json({message:"Hibás Id!"});
+    }
+
+    const user=await User.findById(_id);
+    if(!user){
+        return res.status(400).json({message:"Nincs ilyen felhasználó!"});
+    }
+    if(!await bcrypt.compare(password,user.password)){
+        return res.status(400).json({message:"A jelszó nem megfelelő!"});
+    }
+
+    await User.findByIdAndUpdate(_id,{age});
+
+    return res.status(200).json(await User.findById(_id));
+
+
+});

@@ -7,3 +7,23 @@ Content-Type: application/json
     "email":"user1@users.hu",
     "age":21
 }
+###
+POST http://localhost:8000/belepes
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "password":"titok_12"
+    
+}
+###
+PATCH http://localhost:8000/modositas
+Content-Type: application/json
+
+{
+    "_id":"693154487e422da5a125be74",
+    "username":"user1",
+    "password":"titok_12",
+    "email":"user1@users.hu",
+    "age":31
+}
