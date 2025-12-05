@@ -8,6 +8,7 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use('/api/user',require('./routes/userRoutes'));
 
 mongoose.connect("mongodb://localhost:27017/users_2025")
 .then(()=>console.log("Kapcsolódva"))
