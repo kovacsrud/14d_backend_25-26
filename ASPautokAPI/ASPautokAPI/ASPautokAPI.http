@@ -1,0 +1,6 @@
+@ASPautokAPI_HostAddress = http://localhost:5265
+
+GET {{ASPautokAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
