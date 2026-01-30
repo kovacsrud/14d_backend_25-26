@@ -1,0 +1,6 @@
+@KutyakWebAPI_HostAddress = http://localhost:5163
+
+GET {{KutyakWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
